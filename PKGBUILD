@@ -49,12 +49,12 @@ depends=(
   mailutils
   imagemagick
 )
-source=(https://ftp.gnu.org/gnu/emacs/${pkgname}-${pkgver}.tar.xz)
+source=(https://ftp.gnu.org/gnu/emacs/emacs-${pkgver}.tar.xz)
 sha256sums=('ba897946f94c36600a7e7bb3501d27aa4112d791bfe1445c61ed28550daca235')
 options=(!strip)
 
 build() {
-  cd ${pkgname}-${pkgver}
+  cd emacs-${pkgver}
 
   ./configure \
     --sysconfdir=/etc \
@@ -80,7 +80,7 @@ build() {
 }
 
 package() {
-  cd ${pkgbase}-${pkgver}
+  cd emacs-${pkgver}
   make DESTDIR="${pkgdir}" install
   find "${pkgdir}"/usr/share/emacs/${pkgver} -exec chown root:root {} \;
 }
