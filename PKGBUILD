@@ -48,6 +48,7 @@ depends=(
   libgccjit
   webkit2gtk
   mailutils
+  imagemagick
 )
 source=(https://ftp.gnu.org/gnu/emacs/${pkgname}-${pkgver}.tar.xz)
 sha256sums=('ba897946f94c36600a7e7bb3501d27aa4112d791bfe1445c61ed28550daca235')
@@ -69,6 +70,7 @@ build() {
     --without-compress-install \
     --with-json \
     --with-mailutils \
+    --with-imagemagick \
     --disable-build-details \
     --with-x-toolkit=gtk3 \
     --with-native-compilation=aot \
