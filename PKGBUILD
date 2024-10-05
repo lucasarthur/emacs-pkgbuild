@@ -1,10 +1,10 @@
 # my own build of emacs with some different options
 # stolen from official arch emacs build @ https://gitlab.archlinux.org/archlinux/packaging/packages/emacs
 
-pkgname=emacs-custom
+pkgname=emacs
 pkgver=29.4
 pkgrel=1
-pkgdesc='GNU Emacs custom build'
+pkgdesc='GNU Emacs'
 arch=('x86_64')
 url='https://www.gnu.org/software/emacs/'
 license=('GPL3')
@@ -49,12 +49,12 @@ depends=(
   mailutils
   imagemagick
 )
-source=(https://ftp.gnu.org/gnu/emacs/emacs-${pkgver}.tar.xz)
+source=(https://ftp.gnu.org/gnu/emacs/${pkgname}-${pkgver}.tar.xz)
 sha256sums=('ba897946f94c36600a7e7bb3501d27aa4112d791bfe1445c61ed28550daca235')
 options=(!strip)
 
 build() {
-  cd emacs-${pkgver}
+  cd ${pkgname}-${pkgver}
 
   ./configure \
     --sysconfdir=/etc \
@@ -80,7 +80,7 @@ build() {
 }
 
 package() {
-  cd emacs-${pkgver}
+  cd ${pkgname}-${pkgver}
   make DESTDIR="${pkgdir}" install
   find "${pkgdir}"/usr/share/emacs/${pkgver} -exec chown root:root {} \;
 }
