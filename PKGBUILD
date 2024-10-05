@@ -1,12 +1,12 @@
 # my own build of emacs with some different options
 # stolen from official arch emacs build @ https://gitlab.archlinux.org/archlinux/packaging/packages/emacs
 
-pkgname=emacs
+pkgname=emacs-custom
 pkgver=29.4
 pkgrel=1
-pkgdesc='The extensible, customizable, self-documenting real-time display editor'
+pkgdesc='GNU Emacs custom build'
 arch=('x86_64')
-url='https://www.gnu.org/software/emacs/emacs.html'
+url='https://www.gnu.org/software/emacs/'
 license=('GPL3')
 depends=(
   gmp
@@ -39,7 +39,6 @@ depends=(
   libsystemd.so
   libtiff.so
   libtree-sitter.so
-  libwebp.so
   libwebpdemux.so
   libxfixes
   libxml2.so
@@ -52,6 +51,7 @@ depends=(
 )
 source=(https://ftp.gnu.org/gnu/emacs/${pkgname}-${pkgver}.tar.xz)
 sha256sums=('ba897946f94c36600a7e7bb3501d27aa4112d791bfe1445c61ed28550daca235')
+options=(!strip)
 
 build() {
   cd ${pkgname}-${pkgver}
