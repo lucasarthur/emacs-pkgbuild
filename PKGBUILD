@@ -82,11 +82,5 @@ build() {
 package() {
   cd ${pkgbase}-${pkgver}
   make DESTDIR="${pkgdir}" install
-
-  # remove conflict with ctags package
-  mv "${pkgdir}"/usr/bin/{ctags,ctags.emacs}
-  mv "${pkgdir}"/usr/share/man/man1/{ctags.1.gz,ctags.emacs.1}
-
-  # fix user/root permissions on usr/share files
   find "${pkgdir}"/usr/share/emacs/${pkgver} -exec chown root:root {} \;
 }
