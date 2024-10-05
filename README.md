@@ -1,2 +1,2 @@
-# emacs-pkg
+# emacs-pkgbuild
 My Emacs custom PKGBUILD
